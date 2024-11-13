@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import PasswordField from "../../components/elements/forms/PasswordField";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import InputField from "../../components/elements/forms/InputField";
 import { MainButton } from "../../components/elements/button/Index";
 
-const SignUpPage = () => {
+const Signup = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -74,7 +74,7 @@ const SignUpPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center bg-gray-100">
+    <div className="flex flex-col items-center justify-center py-10 bg-gray-100">
       <h1 className="text-3xl font-bold mb-4">Sign Up</h1>
       <form
         onSubmit={handleSignUp}
@@ -123,7 +123,7 @@ const SignUpPage = () => {
         {errorMessage && (
           <p className="text-red-500 text-xs mb-2">{errorMessage}</p>
         )}
-        <div className="flex justify-between">
+        <div className="flex justify-between mb-10">
           <MainButton type="submit" className="mr-10 max-md:mr-5">
             Create Account
           </MainButton>
@@ -133,8 +133,14 @@ const SignUpPage = () => {
           </MainButton>
         </div>
       </form>
+      <div className="flex flex-wrap text-xl gap-2.5 items-center self-center mt-12 text-center max-md:mt-10">
+            <span className="text-zinc-800">Already have an account?</span>
+            <Link to="/auth/login" className="text-zinc-800 underline">
+              Login
+            </Link>
+          </div>
     </div>
   );
 };
 
-export default SignUpPage;
+export default Signup;
