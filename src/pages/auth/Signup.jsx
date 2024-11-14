@@ -36,45 +36,46 @@ const Signup = () => {
     }
   };
 
-  const handleSignUp = (e) => {  
-    e.preventDefault();  
-    setErrorMessage("");  
-    setEmailErrorMessage("");  
-    setPasswordErrorMessage("");  
-  
-    const { email, password, confirmPassword } = formData;  
-  
-    // Basic validation for email  
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  
-    if (!emailRegex.test(email)) {  
-      setEmailErrorMessage("Please enter a valid email address.");  
-      return;  
-    }  
-  
-    // Password requirements validation  
-    const passwordCriteriaMet = regExp.test(password); // Use the regex defined above  
-    if (!passwordCriteriaMet) {  
-      setPasswordErrorMessage(  
-        "Password must contain at least: one lowercase letter, one uppercase letter, one number, one special character [!@#$%^&*()_+=], and must not be less than 8 characters."  
-      );  
-      return;  
-    }  
-  
-    // Check if passwords match  
-    if (password !== confirmPassword) {  
-      setErrorMessage("Passwords do not match.");  
-      return;  
-    }  
-  
-    // Process sign-up logic (e.g., API request) here  
-    console.log("Sign Up Successful!", formData);  
-  
-    // Navigate to login page  
-    navigate("/auth/login");  
+  const handleSignUp = (e) => {
+    e.preventDefault();
+    setErrorMessage("");
+    setEmailErrorMessage("");
+    setPasswordErrorMessage("");
+
+    const { email, password, confirmPassword } = formData;
+
+    // Basic validation for email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setEmailErrorMessage("Please enter a valid email address.");
+      return;
+    }
+
+    // Password requirements validation
+    const passwordCriteriaMet = regExp.test(password); // Use the regex defined above
+    if (!passwordCriteriaMet) {
+      setPasswordErrorMessage(
+        "Password must contain at least: one lowercase letter, one uppercase letter, one number, one special character [!@#$%^&*()_+=], and must not be less than 8 characters."
+      );
+      return;
+    }
+
+    // Check if passwords match
+    if (password !== confirmPassword) {
+      setErrorMessage("Passwords do not match.");
+      return;
+    }
+
+    // Process sign-up logic (e.g., API request) here
+    console.log("Sign Up Successful!", formData);
+
+    // Navigate to login page
+    navigate("/auth/login");
   };
 
   return (
     <div className="flex flex-col items-center justify-center py-10 bg-gray-100">
+      <Link to="/" className="w-full flex justify-between items-center text-xl font-bold px-4">LOGO</Link>
       <h1 className="text-3xl font-bold mb-4">Sign Up</h1>
       <form
         onSubmit={handleSignUp}
@@ -124,21 +125,22 @@ const Signup = () => {
           <p className="text-red-500 text-xs mb-2">{errorMessage}</p>
         )}
         <div className="flex justify-between mb-10">
-          <MainButton type="submit" className="mr-10 max-md:mr-5">
-            Create Account
-          </MainButton>
-
-          <MainButton type="button" onClick={() => window.history.back()}>
+          <MainButton
+            type="button"
+            onClick={() => window.history.back()}
+            className="mr-10 max-md:mr-5"
+          >
             Back
           </MainButton>
+          <MainButton type="submit">Create Account</MainButton>
         </div>
       </form>
       <div className="flex flex-wrap text-xl gap-2.5 items-center self-center mt-12 text-center max-md:mt-10">
-            <span className="text-zinc-800">Already have an account?</span>
-            <Link to="/auth/login" className="text-zinc-800 underline">
-              Login
-            </Link>
-          </div>
+        <span className="text-zinc-800">Already have an account?</span>
+        <Link to="/auth/login" className="text-zinc-800 underline">
+          Login
+        </Link>
+      </div>
     </div>
   );
 };

@@ -58,6 +58,7 @@ const Login = () => {
 
   return (
     <div className="flex flex-col items-center justify-center py-10 bg-gray-100">
+      <Link to="/" className="w-full flex justify-between items-center text-xl font-bold px-4">LOGO</Link>
       <h1 className="text-3xl font-bold mb-4">Log In</h1>
       <form
         onSubmit={handleLogin}
@@ -97,13 +98,14 @@ const Login = () => {
           </Link>
         </div>
         <div className="flex justify-between mb-10">
-          <MainButton type="submit" className="mr-10 max-md:mr-5">
-            Log In
-          </MainButton>
-
-          <MainButton type="button" onClick={() => window.history.back()}>
+          <MainButton
+            type="button"
+            onClick={() => window.history.back()}
+            className="mr-10 max-md:mr-5"
+          >
             Back
           </MainButton>
+          <MainButton type="submit">Log In</MainButton>
         </div>
       </form>
       <div className="flex flex-wrap text-xl gap-2.5 items-center self-center mt-12 text-center max-md:mt-10">
