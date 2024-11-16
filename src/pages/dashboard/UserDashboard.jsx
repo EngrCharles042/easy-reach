@@ -1,14 +1,30 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import UserProfile from "./UserProfile";
 import MedicalTeam from "./MedicalTeam";
 import MedicalHistory from "./MedicalHistory";
 import FeedbackAndHealthTips from "./FeedbackAndHealthTips";
 import Notification from "./Notification";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const UserDashboard = () => {
   const [activeSection, setActiveSection] = useState("profile");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [userName, setUserName] = useState(""); // State to store the user's name
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    //   // Retrieve the logged-in user from localStorage
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+    //   // Check if the user is valid
+    if (loggedInUser && loggedInUser.user) {
+      setUserName(loggedInUser.user.fullName || "User"); // Set the user's name
+    } else {
+      // If no logged-in user, redirect to the login page
+      navigate("/auth/login");
+    }
+  }, [navigate]);
 
   const renderContent = () => {
     switch (activeSection) {
@@ -27,13 +43,23 @@ const UserDashboard = () => {
     }
   };
 
+  const handleLogout = () => {
+    // Clear user data from local storage or session storage
+    // localStorage.removeItem("users");
+    localStorage.removeItem("loggedInUser"); // Optional, if you store logged-in user data
+    // sessionStorage.clear(); // Clear any session storage if used
+
+    // Navigate to the login page
+    navigate("/auth/login");
+  };
+
   return (
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar (hidden on small screens) */}
       <aside
         className={`w-64 bg-white shadow-lg fixed lg:relative lg:block transform transition-transform duration-300 ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
-        } lg:translate-x-0 mt-[4.55rem]`}
+        } lg:translate-x-0 max-md:mt-[4.55rem]`}
       >
         <div className="p-6 text-xl font-semibold text-gray-800 border-b">
           LOGO
@@ -97,8 +123,11 @@ const UserDashboard = () => {
             {isMenuOpen ? <FaTimes /> : <FaBars />}
           </button>
 
-          <h1 className="text-2xl font-bold text-gray-800">Hi User</h1>
-          <button className="text-gray-600 bg-gray-200 px-4 py-2 rounded hover:bg-gray-300">
+          <h1 className="text-2xl font-bold text-gray-800">Hi {userName}!</h1>
+          <button
+            onClick={handleLogout}
+            className="text-gray-600 bg-gray-200 px-4 py-2 rounded hover:bg-gray-300"
+          >
             Logout
           </button>
         </header>

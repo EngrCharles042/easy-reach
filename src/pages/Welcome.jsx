@@ -18,7 +18,7 @@ const Welcome = () => {
         Your health at your fingertips. Get medical advice, book appointments,
         and much more.
       </div>
-      <MainButton className="mt-10 w-1/5 max-md:w-2/3 mx-auto" onClick={handleGetStarted}>
+      <MainButton className="mt-10 w-2/5 max-md:w-2/3 mx-auto" onClick={handleGetStarted}>
         Get Started
       </MainButton>
     </div>

@@ -41,16 +41,16 @@ const Signup = () => {
     setErrorMessage("");
     setEmailErrorMessage("");
     setPasswordErrorMessage("");
-
-    const { email, password, confirmPassword } = formData;
-
+  
+    const { fullName, email, password, confirmPassword } = formData;
+  
     // Basic validation for email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       setEmailErrorMessage("Please enter a valid email address.");
       return;
     }
-
+  
     // Password requirements validation
     const passwordCriteriaMet = regExp.test(password); // Use the regex defined above
     if (!passwordCriteriaMet) {
@@ -59,19 +59,32 @@ const Signup = () => {
       );
       return;
     }
-
+  
     // Check if passwords match
     if (password !== confirmPassword) {
       setErrorMessage("Passwords do not match.");
       return;
     }
-
-    // Process sign-up logic (e.g., API request) here
+  
+    // Retrieve existing users from local storage
+    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+  
+    // Check if email is already registered
+    if (existingUsers.some((user) => user.email === email)) {
+      setEmailErrorMessage("Email is already registered. Please login.");
+      return;
+    }
+  
+    // Save the new user to local storage
+    const newUser = { fullName, email, password };
+    localStorage.setItem("users", JSON.stringify([...existingUsers, newUser]));
+  
     console.log("Sign Up Successful!", formData);
-
+  
     // Navigate to login page
     navigate("/auth/login");
   };
+  
 
   return (
     <div className="flex flex-col items-center justify-center py-10 bg-gray-100">

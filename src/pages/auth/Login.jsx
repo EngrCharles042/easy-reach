@@ -37,28 +37,44 @@ const Login = () => {
 
     const { email, password } = formData;
 
-    // Validate email format
-    if (!emailRegex.test(email)) {
-      setEmailErrorMessage("Please enter a valid email address.");
-      return;
+    // // Validate email format
+    // if (!emailRegex.test(email)) {
+    //   setEmailErrorMessage("Please enter a valid email address.");
+    //   return;
+    // }
+
+    // // Validate that password is not empty
+    // if (password.trim() === "") {
+    //   setErrorMessage("Please enter your password.");
+    //   return;
+    // }
+
+    // Retrieve users from local storage
+    const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+    // Check if email exists and password matches
+    const user = existingUsers.find(
+      (user) => user.email === email && user.password === password
+    );
+
+    if (user) {
+      console.log("Login Successful!", user);
+      // Save the logged-in user to localStorage
+      localStorage.setItem("loggedInUser", JSON.stringify({user}));
+      navigate("/dashboard");
+    } else {
+      setErrorMessage("Invalid email or password.");
     }
-
-    // Validate that password is not empty
-    if (password.trim() === "") {
-      setErrorMessage("Please enter your password.");
-      return;
-    }
-
-    // Process login logic here (e.g., API request)
-    console.log("Login Successful!", formData);
-
-    // Navigate to the desired page after successful login
-    navigate("/dashboard");
   };
 
   return (
     <div className="flex flex-col items-center justify-center py-10 bg-gray-100">
-      <Link to="/" className="w-full flex justify-between items-center text-xl font-bold px-4">LOGO</Link>
+      <Link
+        to="/"
+        className="w-full flex justify-between items-center text-xl font-bold px-4"
+      >
+        LOGO
+      </Link>
       <h1 className="text-3xl font-bold mb-4">Log In</h1>
       <form
         onSubmit={handleLogin}
