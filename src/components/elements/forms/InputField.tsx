@@ -1,6 +1,6 @@
 import React from "react";
 
-const InputField = ({ label, value, type, placeholder, name, onChange }) => {
+const InputField = ({ label, value, type, placeholder, name, onChange, className = "", }) => {
   return (
     <div className="flex flex-col mt-9 w-full max-md:max-w-full">
       <label
@@ -17,7 +17,7 @@ const InputField = ({ label, value, type, placeholder, name, onChange }) => {
           value={value}
           placeholder={placeholder}
           onChange={onChange}
-          className="flex-1 shrink self-stretch my-auto outline-none basis-0 max-md:max-w-full"
+          className={`flex-1 shrink self-stretch my-auto outline-none basis-0 max-md:max-w-full ${className}`}
           required
         />
       </div>
