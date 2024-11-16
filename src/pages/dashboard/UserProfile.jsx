@@ -110,7 +110,7 @@ const UserProfile = () => {
           {!isSaving ? (
             <label
               htmlFor="upload-photo"
-              className="bg-blue-500 text-white px-4 py-2 rounded cursor-pointer hover:bg-blue-600"
+              className="bg-green-500 text-white px-4 py-2 rounded cursor-pointer hover:bg-green-600 transition duration-300"
             >
               Upload New Photo
               <input
@@ -124,7 +124,7 @@ const UserProfile = () => {
           ) : (
             <button
               onClick={handleSavePic}
-              className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300"
             >
               Save Profile Picture
             </button>
@@ -179,7 +179,7 @@ const UserProfile = () => {
         <div className="mt-6 flex justify-end space-x-4">
           {isEditing ? (
             <>
-              <MainButton onClick={() => setIsEditing(false)}>
+              <MainButton onClick={() => setIsEditing(false)} className="bg-red-500 hover:bg-red-600">
                 Cancel
               </MainButton>
               <MainButton onClick={handleSave}>Save Changes</MainButton>

@@ -1,4 +1,5 @@
 import React from "react";
+import { AppointmentButton } from "../../components/elements/button/Index";
 
 const MedicalTeam = () => {
   return (
@@ -26,23 +27,15 @@ const MedicalTeam = () => {
       <p className="text-gray-700 mb-6">
         If you need immediate assistance, please call:
       </p>
-      <p className="font-bold text-lg text-blue-600 mb-8">
+      <p className="font-bold text-lg text-green-600">
         Emergency Number: +234 8104080000
       </p>
 
-      <div className="space-y-4">
-        <button className="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-          Dr. John Doe
-        </button>
-        <button className="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-          Dr. Jane Smith
-        </button>
-        <button className="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-          Dr. Sam Brown
-        </button>
-        <button className="w-full py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
-          Dr. Emily White
-        </button>
+      <div className="flex flex-col items-center">
+        <AppointmentButton> Dr. John Doe </AppointmentButton>
+        <AppointmentButton> Dr. Jane Smith</AppointmentButton>
+        <AppointmentButton> Dr. Sam Brown</AppointmentButton>
+        <AppointmentButton> Dr. Emily White</AppointmentButton>
       </div>
     </div>
   );

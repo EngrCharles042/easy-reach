@@ -8,7 +8,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const UserDashboard = () => {
-  const [activeSection, setActiveSection] = useState("profile");
+  const [activeSection, setActiveSection] = useState("notifications");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [userName, setUserName] = useState(""); // State to store the user's name
   const navigate = useNavigate();
@@ -132,7 +132,7 @@ const UserDashboard = () => {
           </button>
         </header>
 
-        <main className="flex-1 p-6 overflow-y-auto">{renderContent()}</main>
+        <main className="flex-1 p-6 bg-gray-100 overflow-y-auto">{renderContent()}</main>
       </div>
     </div>
   );

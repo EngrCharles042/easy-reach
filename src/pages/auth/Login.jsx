@@ -117,7 +117,7 @@ const Login = () => {
           <MainButton
             type="button"
             onClick={() => window.history.back()}
-            className="mr-10 max-md:mr-5"
+            className="mr-10 max-md:mr-5 bg-red-500 hover:bg-red-600"
           >
             Back
           </MainButton>
