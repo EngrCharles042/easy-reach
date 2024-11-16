@@ -1,12 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const MedicalHistory = () => {
+    const [userName, setUserName] = useState(""); // State to store the user's name
+
+  useEffect(() => {
+    //   // Retrieve the logged-in user from localStorage
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+    //   // Check if the user is valid
+    if (loggedInUser && loggedInUser.user) {
+      setUserName(loggedInUser.user.fullName || "Client"); // Set the user's name
+    } else {
+      // If no logged-in user, redirect to the login page
+      console.log("This client doesn't exist");
+    }
+  });
+
   return (
 <div className="p-6 bg-white rounded-lg shadow-md">
             <h2 className="text-2xl font-semibold mb-4">Patient Information</h2>
             <div className="text-gray-700 mb-6">
-              <p><strong>Name:</strong> John Doe</p>
-              <p><strong>Age:</strong> 35</p>
+              <p><strong>Name:</strong> {userName}</p>
+              <p><strong>Age:</strong> 31</p>
               <p><strong>Blood Type:</strong> O+</p>
               <p><strong>Allergies:</strong> None</p>
             </div>
