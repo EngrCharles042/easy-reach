@@ -55,7 +55,7 @@ const FeedbackAndHealthTips = () => {
         This feedback helps us to understand you more and serve you better.
       </p>
 
-      <form className="w-1/2 space-y-4 max-md:w-full" onSubmit={handleSubmit}>
+      <form className="flex flex-col mx-auto space-y-4 w-1/2 max-md:w-full" onSubmit={handleSubmit}>
         <InputField
           label="Name"
           type="text"
@@ -91,7 +91,7 @@ const FeedbackAndHealthTips = () => {
             onChange={handleChange}
           ></textarea>
         </div>
-        <MainButton type="submit" className="w-[50%] max-md:w-full">
+        <MainButton type="submit" className="max-md:w-full">
           Submit Feedback
         </MainButton>
       </form>

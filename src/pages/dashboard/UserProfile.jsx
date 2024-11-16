@@ -133,7 +133,7 @@ const UserProfile = () => {
       </div>
 
       {/* Profile Form */}
-      <form onSubmit={handleFormSubmit} className="space-y-4">
+      <form onSubmit={handleFormSubmit} className="flex flex-col mx-auto space-y-4 w-1/2 max-md:w-full">
         <InputField
           label="Full Name"
           type="text"
