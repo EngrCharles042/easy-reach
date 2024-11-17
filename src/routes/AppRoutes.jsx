@@ -4,6 +4,7 @@ import Welcome from "../pages/Welcome";
 import Login from "../pages/auth/Login";
 import Signup from "../pages/auth/Signup";
 import UserDashboard from '../pages/dashboard/UserDashboard';
+import AppointmentBooking from '../pages/dashboard/AppointmentBooking';
 
 const AuthenticationRoutes = () => {
   return (
@@ -15,6 +16,8 @@ const AuthenticationRoutes = () => {
       <Route path="auth/login" element={<Login />} />
 
       <Route path="dashboard" element={<UserDashboard />} />
+
+      <Route path="appointment" element={<AppointmentBooking />} />
 
       <Route path="*" element={<Navigate to="auth/login" replace />} />
     </Routes>

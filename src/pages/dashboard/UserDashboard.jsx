@@ -61,8 +61,8 @@ const UserDashboard = () => {
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         } lg:translate-x-0 max-md:mt-[4.55rem]`}
       >
-        <div className="p-6 text-xl font-semibold text-gray-800 border-b">
-          LOGO
+        <div className="p-6 text-xl font-semibold border-b">
+          <span className="text-green-500">Easy</span><span className="text-blue-500">Reach</span>
         </div>
         <nav className="mt-6 space-y-4">
           <button
