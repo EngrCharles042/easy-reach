@@ -89,7 +89,7 @@ const Signup = () => {
     <div className="flex flex-col items-center justify-center py-10 bg-gray-100">
       <Link
         to="/"
-        className="w-full flex justify-between items-center text-xl font-bold px-4"
+        className="w-full text-xl font-bold px-4"
       >
         <span className="text-green-500">Easy</span>
         <span className="text-blue-500">Reach</span>
