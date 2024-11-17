@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { MainButton } from "../../components/elements/button/Index";
 
 const AppointmentBooking = ({
   doctorPhoto,
@@ -42,7 +43,7 @@ const AppointmentBooking = ({
       <div className="flex items-center mb-6">
         <img
           src={doctorPhoto}
-          alt={`photo`}
+          alt="photo"
           className="w-24 h-24 bg-gray-100 rounded-full object-cover mr-4"
         />
         <div>
@@ -53,7 +54,7 @@ const AppointmentBooking = ({
         </div>
       </div>
 
-      <form className="space-y-4" onSubmit={handleSubmit}>
+      <form className="space-y-4 max-md:space-y-2" onSubmit={handleSubmit}>
         <div>
           <label
             htmlFor="date"
@@ -128,20 +129,19 @@ const AppointmentBooking = ({
           />
         </div>
 
-        <div className="flex justify-between mt-6">
-          <button
+        <div className="flex">
+          <MainButton
             type="button"
             onClick={onBackToDashboard}
-            className="px-6 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition duration-300"
+            className="max-md:py-2 mr-10 max-md:mr-5 bg-red-500 hover:bg-red-600 mt-0 max-md:mt-0"
           >
-            Back to Dashboard
-          </button>
-          <button
-            type="submit"
-            className="px-6 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition duration-300"
+            Back
+          </MainButton>
+          <MainButton
+            type="submit" className="max-md:py-2 mt-0 max-md:mt-0"
           >
-            Book Appointment
-          </button>
+            Book
+          </MainButton>
         </div>
       </form>
     </div>

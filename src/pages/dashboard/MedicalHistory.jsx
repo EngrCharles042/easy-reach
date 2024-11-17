@@ -28,7 +28,7 @@ const MedicalHistory = () => {
 
             <h3 className="text-xl font-semibold mb-3">Medical Records</h3>
             <ul className="list-disc list-inside text-gray-700 mb-6 space-y-2">
-              <li>2023-05-15: Annual Physical Exam - Dr. Jane Smith</li>
+              <li>2023-05-15: Annual Physical Exam - Dr. Charles Igwe</li>
               <li>2023-04-10: Blood Test - Normal</li>
               <li>2022-11-22: X-ray for chest pain - No issues found</li>
               <li>2022-05-10: Flu Vaccination</li>
@@ -36,8 +36,8 @@ const MedicalHistory = () => {
 
             <h3 className="text-xl font-semibold mb-3">Past Appointments</h3>
             <ul className="list-disc list-inside text-gray-700 mb-6 space-y-2">
-              <li>2023-08-01: Dr. John Doe - General Consultation</li>
-              <li>2023-06-14: Dr. Jane Smith - Follow-up Visit</li>
+              <li>2023-08-01: Dr. Destiny Ibezim - General Consultation</li>
+              <li>2023-06-14: Dr. Georgian Kosisochukwu - Follow-up Visit</li>
             </ul>
 
             <h3 className="text-xl font-semibold mb-3">Prescriptions</h3>

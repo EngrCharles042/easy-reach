@@ -132,7 +132,7 @@ const UserDashboard = () => {
           </button>
         </header>
 
-        <main className="flex-1 p-6 bg-gray-100 overflow-y-auto">{renderContent()}</main>
+        <main className="flex-1 p-6 bg-gray-100">{renderContent()}</main>
       </div>
     </div>
   );

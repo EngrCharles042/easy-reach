@@ -16,9 +16,7 @@ const AuthenticationRoutes = () => {
       <Route path="auth/login" element={<Login />} />
 
       <Route path="dashboard" element={<UserDashboard />} />
-
-      <Route path="appointment" element={<AppointmentBooking />} />
-
+      
       <Route path="*" element={<Navigate to="auth/login" replace />} />
     </Routes>
   );

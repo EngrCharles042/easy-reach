@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { AppointmentButton } from "../../components/elements/button/Index";
 import AppointmentBooking from "./AppointmentBooking";
 import Modal from "../../components/elements/modal/Modal";
+import charlesPhoto from "../../assets/images/charles.jpg"
+// import kosiPhoto from "../../assets/images/kosi.jpg"
+// import destinyPhoto from "../../assets/images/destiny.jpg"
+// import igwePhoto from "../../assets/images/igwe.jpg"
 
 const MedicalTeam = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -10,32 +14,32 @@ const MedicalTeam = () => {
 
   const doctors = [
     {
-      name: "Dr. John Doe",
-      photo: "/path/to/photo1.jpg",
+      name: "Dr. Charles Obi",
+      photo: charlesPhoto,
       specialty: "Cardiology",
-      email: "john@example.com",
-      phone: "123-456-7890",
+      email: "charles@easyreach.com",
+      phone: "234-806-465-9914",
     },
     {
-      name: "Dr. Jane Smith",
-      photo: "/path/to/photo2.jpg",
-      specialty: "Dermatology",
-      email: "jane@example.com",
-      phone: "987-654-3210",
-    },
-    {
-      name: "Dr. Sam Brown",
-      photo: "/path/to/photo3.jpg",
-      specialty: "Neurology",
-      email: "sam@example.com",
-      phone: "555-555-5555",
-    },
-    {
-      name: "Dr. Emily White",
+      name: "Dr. Georgian Kosisochukwu",
       photo: "/path/to/photo4.jpg",
       specialty: "Pediatrics",
-      email: "emily@example.com",
-      phone: "111-111-1111",
+      email: "kosi@easyreach.com",
+      phone: "234-810-408-6033",
+    },
+    {
+      name: "Dr. Destiny Ibezim",
+      photo: "/path/to/photo1.jpg",
+      specialty: "Dermatology",
+      email: "ibezim@easyreach.com",
+      phone: "234-814-891-8548",
+    },
+    {
+      name: "Dr. Charles Igwe",
+      photo: "/path/to/photo3.jpg",
+      specialty: "Neurology",
+      email: "igwe@easyreach.com",
+      phone: "234-807-700-0888",
     },
   ];
 
@@ -94,7 +98,7 @@ const MedicalTeam = () => {
       <p className="text-gray-700 mb-6">
         If you need immediate assistance, please call:
       </p>
-      <p className="font-bold text-lg text-green-600">
+      <p className="font-bold text-lg text-green-600 max-md:text-sm">
         Emergency Number: +234 8104080000
       </p>
 
