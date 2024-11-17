@@ -41,16 +41,16 @@ const Signup = () => {
     setErrorMessage("");
     setEmailErrorMessage("");
     setPasswordErrorMessage("");
-  
+
     const { fullName, email, password, confirmPassword } = formData;
-  
+
     // Basic validation for email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       setEmailErrorMessage("Please enter a valid email address.");
       return;
     }
-  
+
     // Password requirements validation
     const passwordCriteriaMet = regExp.test(password); // Use the regex defined above
     if (!passwordCriteriaMet) {
@@ -59,36 +59,41 @@ const Signup = () => {
       );
       return;
     }
-  
+
     // Check if passwords match
     if (password !== confirmPassword) {
       setErrorMessage("Passwords do not match.");
       return;
     }
-  
+
     // Retrieve existing users from local storage
     const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-  
+
     // Check if email is already registered
     if (existingUsers.some((user) => user.email === email)) {
       setEmailErrorMessage("Email is already registered. Please login.");
       return;
     }
-  
+
     // Save the new user to local storage
     const newUser = { fullName, email, password };
     localStorage.setItem("users", JSON.stringify([...existingUsers, newUser]));
-  
+
     console.log("Sign Up Successful!", formData);
-  
+
     // Navigate to login page
     navigate("/auth/login");
   };
-  
 
   return (
     <div className="flex flex-col items-center justify-center py-10 bg-gray-100">
-      <Link to="/" className="w-full flex justify-between items-center text-xl font-bold px-4">LOGO</Link>
+      <Link
+        to="/"
+        className="w-full flex justify-between items-center text-xl font-bold px-4"
+      >
+        <span className="text-green-500">Easy</span>
+        <span className="text-blue-500">Reach</span>
+      </Link>
       <h1 className="text-3xl font-bold mb-4">Sign Up</h1>
       <form
         onSubmit={handleSignUp}

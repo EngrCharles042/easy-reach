@@ -60,7 +60,7 @@ const Login = () => {
     if (user) {
       console.log("Login Successful!", user);
       // Save the logged-in user to localStorage
-      localStorage.setItem("loggedInUser", JSON.stringify({user}));
+      localStorage.setItem("loggedInUser", JSON.stringify({ user }));
       navigate("/dashboard");
     } else {
       setErrorMessage("Invalid email or password.");
@@ -73,7 +73,8 @@ const Login = () => {
         to="/"
         className="w-full flex justify-between items-center text-xl font-bold px-4"
       >
-        LOGO
+        <span className="text-green-500">Easy</span>
+        <span className="text-blue-500">Reach</span>
       </Link>
       <h1 className="text-3xl font-bold mb-4">Log In</h1>
       <form
